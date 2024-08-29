@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% load static %}
+
+    {% block content %}
+    <div class="simpleui-container">
+        <div class="card">
+            <div class="card-header">
+                <a href="{% url 'admin:news_news_changelist' %}" class="btn btn-light back-btn">
+                    <svg t="1718004559947" class="icon" viewBox="0 0 1024 1024" version="1.1" 
+                         xmlns="http://www.w3.org/2000/svg" p-id="6471" width="14px" 
+                         height="14px"><path d="M1000.727273 488.727273H76.8L390.981818 153.6c9.309091-9.309091 9.309091-23.272727 0-32.581818-9.309091-9.309091-23.272727-9.309091-32.581818 0L6.981818 495.709091c-9.309091 9.309091-9.309091 23.272727 0 32.581818l351.418182 374.690909c9.309091 9.309091 23.272727 9.309091 32.581818 0 9.309091-9.309091 9.309091-23.272727 0-32.581818L76.8 535.272727H1000.727273c13.963636 0 23.272727-9.309091 23.272727-23.272727s-9.309091-23.272727-23.272727-23.272727z" fill="#666666" p-id="6472"></path>
+                    </svg>
+                    &nbsp;返回</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;新闻展示
+            </div>
+            <div class="content_wrap">
+                <div class="card-body">
+                <h1 class="card-title">{{ news.title }}</h1>
+                <p><strong>作者:</strong> {{ news.author }}</p>
+                <p><strong>发布日期:</strong> {{ news.publisher_date }}</p>
+                <strong>正文:</strong>
+                <p class="card-text">{{ news.content }}</p>
+            </div>
+            </div>
+
+            <div class="card-footer">
+                <a href="{% url 'admin:news_news_change' news.pk %}" class="btn btn-warning">修改</a>
+                <a href="{% url 'admin:news_news_delete' news.pk %}" class="btn btn-danger">删除</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+<style>
+    body{
+        background-color: #F1F4F6;
+    }
+    .card-header{
+        background-color: white;
+    }
+    .content_wrap{
+        background-color: #F1F4F6;
+        padding: 20px;
+    }
+    .card-body{
+        background-color: white;
+        border-radius: 10px;
+    }
+    .card-footer{
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .back-btn{
+        background-color: white;
+        border: none;
+    }
+</style>
+</html>
